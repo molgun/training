@@ -8,12 +8,14 @@ public class Rover {
     protected Integer y;
     protected Direction direction;
     protected DirectionState directionState;
+    protected ModeStrategy strategy;
 
     public Rover(Integer x, Integer y, Direction direction) {
         directionState = new DirectionStateFactory().create(direction);
         validation(x, y);
         this.x = x;
         this.y = y;
+        this.strategy = new NormalModeStrategy();
     }
 
     
@@ -41,5 +43,9 @@ public class Rover {
 
     public void turnLeft() {
         this.directionState.turnLeft(this);
+    }
+
+    public void setStrategy(ModeStrategy strategy){
+
     }
 }

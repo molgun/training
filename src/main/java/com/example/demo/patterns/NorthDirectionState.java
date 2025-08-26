@@ -4,7 +4,7 @@ public class NorthDirectionState implements DirectionState {
 
     @Override
     public void move(Rover rover) {
-        rover.y = rover.y + 2;
+        rover.y = rover.y + rover.strategy.getUnit();
     }
 
     @Override
@@ -19,7 +19,7 @@ public class NorthDirectionState implements DirectionState {
 
     @Override
     public void backward(Rover rover) {
-        rover.y = rover.y - 2;
+        rover.y = rover.y - rover.strategy.getUnit();
     }
 
 }
