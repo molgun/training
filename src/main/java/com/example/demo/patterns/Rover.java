@@ -1,6 +1,6 @@
 package com.example.demo.patterns;
 
-import java.util.Map;
+import com.example.demo.patterns.command.Command;
 
 public class Rover {
 
@@ -25,27 +25,15 @@ public class Rover {
         }
     }
 
-    public void move() {
-        this.directionState.move(this);
-    } 
-
-    public void backward() {
-        if (Direction.NORTH == direction) {
-            y = y - 2;
-        } else if (Direction.EAST == direction) {
-            x = x - 2;
-        }
-    } 
-
-    public void turnRight() {
-        this.directionState.turnRight(this);
-    }
-
-    public void turnLeft() {
-        this.directionState.turnLeft(this);
+    public void run(Command command) {
+        command.execute(this);
     }
 
     public void setStrategy(ModeStrategy strategy){
+        this.strategy = strategy;
+    }
 
+    public DirectionState getDirectionState() {
+        return directionState;
     }
 }

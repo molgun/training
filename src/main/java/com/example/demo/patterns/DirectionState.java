@@ -6,6 +6,6 @@ public interface DirectionState {
     public void turnRight(Rover rover);
 
     public void turnLeft(Rover rover);
-    
+
     public void backward(Rover rover);
 }
